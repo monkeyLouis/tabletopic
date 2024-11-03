@@ -1,0 +1,20 @@
+<div
+  matRipple
+  [matRippleCentered]="centered"
+  [matRippleDisabled]="disabled"
+  [matRippleUnbounded]="unbounded"
+  [matRippleRadius]="radius"
+  [matRippleColor]="color"
+  class="w-40 h-40 flex items-center justify-center rounded-lg shadow-xl text-blue-50 transition-transform transform hover:scale-110 duration-300"
+  [ngClass]="{'bg-blue-500 hover:bg-blue-700 cursor-pointer': !receivedData, 'pointer-events-none opacity-50 cursor-not-allowed bg-blue-200 text-blue-700': receivedData}"
+  (click)="openDialog()"
+  appearance="outlined"
+>
+  <div>    
+    <span *ngIf="!receivedData" class="text-6xl font-mono">{{num}}</span>
+    <div *ngIf="receivedData" class="text-3xl font-mono">
+      <span>{{ receivedData.minutes | number: '2.0-0' }}:</span>
+      <span>{{ receivedData.seconds | number: '2.0-0' }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="text-center flex items-center justify-center space-x-4 font-mono">
+  <div class="text-4xl">
+    <span>{{ minutes | number: '2.0-0' }}:</span>
+    <span>{{ seconds | number: '2.0-0' }}.</span>
+    <span>{{ centiseconds | number: '2.0-0' }}</span>
+  </div>
+    
+  <div class="flex justify-center space-x-4">
+    <button
+      class="text-white font-bold transition-transform transform hover:scale-110 duration-300"
+      mat-mini-fab
+      color="primary"
+      (click)="startStopToggle()"
+      style="box-shadow: none;"
+    >
+      <mat-icon>
+        {{ isRunning ? 'pause' : 'play_arrow' }}
+      </mat-icon>
+    </button>
+    <button 
+      class="text-white font-bold transition-transform transform hover:scale-110 duration-300"  
+      mat-mini-fab
+      color="warn"
+      (click)="resetTimer()"
+      style="box-shadow: none;"
+    >
+      <mat-icon>restart_alt</mat-icon>
+    </button>
+  </div>
+</div>

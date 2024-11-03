@@ -1,0 +1,12 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="bg-amber-50">
+  <div class="container mx-auto h-screen flex items-center justify-center">
+    <app-gptinput *ngIf="!questionSet" class="w-1/2" (submittedContent)="onContentSubmitted($event)"></app-gptinput>
+    <app-playground *ngIf="questionSet" [subject]="subject"[content]="questionSet"></app-playground>
+  </div>
+</body>
+</html>

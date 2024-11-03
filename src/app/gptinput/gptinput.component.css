@@ -1,0 +1,13 @@
+.my-card {
+    height: 50vh;
+}
+
+.my-card-content {
+    display: flex;
+    flex-direction: column; 
+}
+  
+.my-textarea {
+    box-sizing: border-box; /* fit parent width */
+    min-height: 200px; /* 避免高度溢出 */
+}

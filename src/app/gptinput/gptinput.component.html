@@ -1,0 +1,48 @@
+<ng-container *ngIf="!showCard">
+    <div class="min-h-56 w-full flex items-center justify-center text-blue-50 bg-blue-500 hover:bg-blue-600 cursor-pointer font-mono rounded-lg transition-transform transform hover:scale-105 duration-300" (click)="toggleCard()">
+        <span class="text-6xl">Start</span>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="showCard">
+    <mat-card class="my-card font-mono">
+        <mat-card-content class="my-card-content">
+            <div class="mb-5">
+                <span class="text-xl">Input Your Questions set</span>
+            </div>
+            <mat-form-field class="w-full">
+                <mat-label>Your Subject</mat-label>
+                <input
+                    matInput
+                    [formControl]="subject"
+                    (blur)="updateErrorMessage()"
+                    required
+                >
+                <mat-error *ngIf="subject.invalid">
+                    {{ subjectErr() }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+                <mat-label>Questions From GPT</mat-label>
+                <textarea 
+                    matInput
+                    [formControl]="inputValue"
+                    (blur)="updateErrorMessage()"
+                    class="my-textarea"
+                    required
+                ></textarea>
+                <mat-error *ngIf="inputValue.invalid">
+                    {{ inputValueErr() }}
+                </mat-error>
+            </mat-form-field>
+            <div>
+                <button class="w-full" 
+                    mat-raised-button
+                    color="accent"
+                    [disabled]="!isValid()"
+                    (click)="onSubmit()"
+                >That's All</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</ng-container>
