@@ -16,7 +16,7 @@ export class TopicCardComponent {
   disabled = false;
   unbounded = true;
   radius: number = 100;
-  color: string = "rgba(2, 132, 199, 0.5)";
+  color: string = "rgba(255, 255, 255, 0.3)";
 
   receivedData: TimeResult | null = null;
 
